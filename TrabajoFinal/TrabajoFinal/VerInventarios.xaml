@@ -1,0 +1,30 @@
+﻿<Window x:Class="TrabajoFinal.VerInventarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabajoFinal"
+        xmlns:winforms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
+        mc:Ignorable="d"
+        Title="VerInventarios" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock FontWeight="Bold" FontStyle="Italic" TextAlignment="Center" FontSize="20">Consulta de inventarios</TextBlock>
+            <CheckBox Margin="0.5" x:Name="chkVerCeroUnidades">Ver elementos con cero unidades</CheckBox>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnMostrarInventario" Click="btnMostrarInventario_Click">Consultar inventario</Button>
+                
+            </StackPanel>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1">
+            <winforms:DataGridView x:Name="dgvProductos" AllowUserToAddRows="False" AllowUserToDeleteRows="False" ReadOnly="True" ColumnCount="3">
+            </winforms:DataGridView>
+        </WindowsFormsHost>
+    
+        
+    </Grid>
+</Window>

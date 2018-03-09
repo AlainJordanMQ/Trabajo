@@ -1,0 +1,59 @@
+﻿<Window x:Class="TrabajoFinal.GenerarVenta"
+xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabajoFinal"
+        xmlns:winforms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        mc:Ignorable="d"
+        Title="GenerarVenta" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock TextAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="20">Nueva Venta</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>RFC:</TextBlock>
+                <TextBox Width="113" x:Name="txtRFC"></TextBox>
+                <TextBlock>Tel:</TextBlock>
+                <TextBox Width="113" x:Name="txtTel"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Direccion:</TextBlock>
+                <TextBox Width="113" x:Name="txtDireccion"></TextBox>
+                <TextBlock>Email:</TextBlock>
+                <TextBox Width="70" x:Name="txtEmail" Height="24"></TextBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Empleado:</TextBlock>
+                <ComboBox  Width="82" x:Name="cmbMaterias"></ComboBox>
+                <TextBlock>Cliente:</TextBlock>
+                <TextBox Width="113" x:Name="txtNombreCliente"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <xctk:IntegerUpDown Margin="10,0" x:Name="nudCantidad" Minimum="1" Maximum="100" Value="1"/>
+                <ComboBox Width="150" x:Name="cmbProducto"></ComboBox>
+                <Button Margin="10,0" x:Name="btnAgregar" Click="btnAgregar_Click">Agregar</Button>
+            </StackPanel>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1">
+            
+            <winforms:DataGridView x:Name="dgvProductos" ColumnCount="4" AllowUserToDeleteRows="False" AllowUserToAddRows="False">
+            </winforms:DataGridView>
+        </WindowsFormsHost>
+        
+        <StackPanel Grid.Row="2">
+            <TextBlock TextAlignment="Right" x:Name="txbTotal">Total de veta: $0.00</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock>Cantidad proporcionada $</TextBlock>
+                <TextBox Width="80" x:Name="txtCantidad"></TextBox>
+            </StackPanel>
+            <Button x:Name="btnGenerarVenta" Click="btnGenerarVenta_Click">Generar Venta</Button>
+        </StackPanel>
+    </Grid>
+</Window>
